@@ -1,3 +1,5 @@
+This is a TODO option. 
+
 import tkinter as tk
 from tkinter import ttk
 
@@ -43,5 +45,3 @@ To integrate this with your REPL:
     Display the content of the stack in the stack text area.
 
 For colors, the Text widget in Tkinter supports tags, which allow you to apply styles (like colors) to specific ranges of text. You can use this feature to colorize the output or input as needed.
-
-Remember, integrating a REPL into a GUI application introduces complexities, especially around handling input and output in real-time. You'll need to think about how to handle blocking operations, how to update the GUI in response to REPL operations, and other considerations.
