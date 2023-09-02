@@ -1,0 +1,47 @@
+import tkinter as tk
+from tkinter import ttk
+
+class OneForthApp(tk.Tk):
+    def __init__(self):
+        super().__init__()
+
+        # Set the title and size of the main window
+        self.title("OneForth")
+        self.geometry("800x600")
+
+        # Create the Dictionary frame on the left
+        self.dict_frame = ttk.LabelFrame(self, text="Dictionary", width=60)
+        self.dict_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        self.dict_text = tk.Text(self.dict_frame, wrap=tk.WORD, bg="white", fg="black")
+        self.dict_text.pack(fill=tk.BOTH, expand=True)
+
+        # Create the main frame on the right
+        self.main_frame = ttk.Frame(self)
+        self.main_frame.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+
+        # Create the main text area
+        self.main_text = tk.Text(self.main_frame, wrap=tk.WORD, bg="white", fg="black")
+        self.main_text.pack(fill=tk.BOTH, expand=True)
+
+        # Create the Stack frame below the main text area
+        self.stack_frame = ttk.LabelFrame(self.main_frame, text="Stack Content", height=20)
+        self.stack_frame.pack(fill=tk.X, expand=False)
+        self.stack_text = tk.Text(self.stack_frame, wrap=tk.WORD, bg="white", fg="black", height=10)
+        self.stack_text.pack(fill=tk.BOTH, expand=True)
+
+    def run(self):
+        self.mainloop()
+
+if __name__ == "__main__":
+    app = OneForthApp()
+    app.run()
+
+To integrate this with your REPL:
+
+    You'll need to set up event handlers for user input in the main text area.
+    Display the content of the Primitives dictionary in the dictionary text area.
+    Display the content of the stack in the stack text area.
+
+For colors, the Text widget in Tkinter supports tags, which allow you to apply styles (like colors) to specific ranges of text. You can use this feature to colorize the output or input as needed.
+
+Remember, integrating a REPL into a GUI application introduces complexities, especially around handling input and output in real-time. You'll need to think about how to handle blocking operations, how to update the GUI in response to REPL operations, and other considerations.
